@@ -26,61 +26,63 @@ public class Veiculo {
         this.cor = cor;
         this.valor = valor;
     }
+
+    // Getters e Setters
+    public String getPlaca() {
+        return placa;
+    }
+
+    public void setPlaca(String placa) {
+        this.placa = placa;
+    }
+
+    public String getMarca() {
+        return marca;
+    } 
+
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
+
+    public String getModelo() {
+        return modelo;
+    }
+
+    public void setModelo(String modelo) {
+        this.modelo = modelo;
+    }
+
+    public int getAno() {
+        return ano;
+    }
+
+    public void setAno(int ano) {
+        this.ano = ano;
+    }
+
+    public String getCor() {
+        return cor;
+    }
+
+    public void setCor(String cor) {
+        this.cor = cor;
+    }
+
+    public double getValor() {
+        return valor;
+    }   
+
+    public void setValor(double valor) {
+        this.valor = valor;
+    }
+
+    // Método calcular IPVA 
+    public double calcularIPVA() {
+        return valor * 0.04; // Supondo uma alíquota de 4%
+    }
 }
 
-// Getters e Setters
-public String getPlaca () {
-    return placa;
-}
 
-public void setPlaca(String placa) {
-    this.placa = placa;
-}
-
-public String getMarca() {
-    return marca;
-} 
-
-public void setMarca(String marca) {
-    this.marca = marca;
-}
-
-public String getModelo() {
-    return modelo;
-}
-
-public void setModelo(String modelo) {
-    this.modelo = modelo;
-}
-
-public int getAno() {
-    return ano;
-}
-
-public void setAno(int ano) {
-    this.ano = ano;
-}
-
-public String getCor() {
-    return cor;
-}
-
-public void setCor(String cor) {
-    this.cor = cor;
-}
-
-public double getValor() {
-    return valor;
-}   
-
-public void setValor(double valor) {
-    this.valor = valor;
-}
-
-// Método calcular IPVA 
-public double calcularIPVA() {
-    return valor * 0.04; // Supondo uma alíquota de 4%
-}
 
 @Override
 public String toString() {
