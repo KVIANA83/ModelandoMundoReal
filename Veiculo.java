@@ -9,87 +9,49 @@
  */
 
 
-public class Veiculo {
+public abstract class Veiculo {
     private String placa;
     private String marca;
-    private String modelo; 
+    private String modelo;
     private int ano;
-    private String cor;
     private double valor;
 
-    // Construtor
-    public Veiculo(String placa, String marca, String modelo, int ano, String cor, double valor) {
-        this.placa = placa;
-        this.marca  = marca;
-        this.modelo = modelo;
-        this.ano = ano;
-        this.cor = cor;
-        this.valor = valor;
-    }
-
-    // Getters e Setters
-    public String getPlaca() {
-        return placa;
-    }
-
-    public void setPlaca(String placa) {
-        this.placa = placa;
-    }
-
-    public String getMarca() {
-        return marca;
-    } 
-
-    public void setMarca(String marca) {
+    public Veiculo(String marca, String modelo, int ano, String placa, double valor) {
         this.marca = marca;
-    }
-
-    public String getModelo() {
-        return modelo;
-    }
-
-    public void setModelo(String modelo) {
         this.modelo = modelo;
-    }
-
-    public int getAno() {
-        return ano;
-    }
-
-    public void setAno(int ano) {
         this.ano = ano;
-    }
-
-    public String getCor() {
-        return cor;
-    }
-
-    public void setCor(String cor) {
-        this.cor = cor;
-    }
-
-    public double getValor() {
-        return valor;
-    }   
-
-    public void setValor(double valor) {
+        this.placa = placa;
         this.valor = valor;
     }
 
-    // Método calcular IPVA 
-    public double calcularIPVA() {
-        return valor * 0.04; // Supondo uma alíquota de 4%
+    // Getters e setters
+    public String getPlaca() { return placa; }
+    public void setPlaca(String placa) { this.placa = placa; }
+
+    public String getMarca() { return marca; }
+    public void setMarca(String marca) { this.marca = marca; }
+
+    public String getModelo() { return modelo; }
+    public void setModelo(String modelo) { this.modelo = modelo; }
+
+    public int getAno() { return ano; }
+    public void setAno(int ano) { this.ano = ano; }
+
+    public double getValor() { return valor; }
+    public void setValor(double valor) { this.valor = valor; }
+
+    // Método abstrato que cada classe filha implementa
+    public abstract double calcularIpva();
+
+    // Método para exibir informações básicas
+    public void exibirInfo() {
+        System.out.println(marca + " " + modelo + " (" + ano + ")");
+        System.out.println("Placa: " + placa);
+        System.out.println("Valor: R$" + valor);
     }
-}
 
-
-
-@Override
-public String toString() {
-    return "Placa: " + placa + 
-           ", Marca: " + marca + 
-           ", Modelo: " + modelo + 
-           ", Ano: " + ano + 
-           ", Cor: " + cor + 
-           ", Valor: R$ " + valor;
+    @Override
+    public String toString() {
+        return marca + " " + modelo + " (" + ano + "), Placa: " + placa + ", Valor: R$" + valor;
+    }
 }

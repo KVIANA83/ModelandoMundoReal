@@ -8,11 +8,11 @@
    - Thiago Nicolas Ananias da Silva
  */
 
-public class Carro {
+public class Carro extends Veiculo {
     private int numeroPortas;
 
-    public Carro(String placa, String marca, String modelo, int ano, double valor, int numeroPortas) {
-        super(placa, marca, modelo, ano, valor);
+    public Carro(String marca, String modelo, int ano, String placa, double valor, int numeroPortas) {
+        super(marca, modelo, ano, placa, valor);
         this.numeroPortas = numeroPortas;
     }
 
@@ -21,11 +21,12 @@ public class Carro {
 
     @Override
     public double calcularIpva() {
-        return getValor() * 0.035; // 3,5%
+        return getValor() * 0.035;
     }
 
     @Override
     public String toString() {
-        return super.toString() + ", Número de Portas: " + numeroPortas + ", IPVA: " + calcularIpva();
+        return super.toString() + ", Portas: " + numeroPortas + ", IPVA: R$" + calcularIpva();
     }
 }
+

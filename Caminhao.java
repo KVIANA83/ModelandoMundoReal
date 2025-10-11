@@ -9,10 +9,10 @@
  */
 
 public class Caminhao extends Veiculo {
-    private double capacidadeCarga; // em toneladas
+    private double capacidadeCarga;
 
-    public Caminhao(String placa, String marca, String modelo, int ano, double valor, double capacidadeCarga) {
-        super(placa, marca, modelo, ano, valor);
+    public Caminhao(String marca, String modelo, int ano, String placa, double valor, double capacidadeCarga) {
+        super(marca, modelo, ano, placa, valor);
         this.capacidadeCarga = capacidadeCarga;
     }
 
@@ -21,15 +21,11 @@ public class Caminhao extends Veiculo {
 
     @Override
     public double calcularIpva() {
-        if (capacidadeCarga <= 5) {
-            return getValor() * 0.02; // 2%
-        } else {
-            return getValor() * 0.03; // 3%
-        }
+        return (capacidadeCarga <= 5) ? getValor() * 0.02 : getValor() * 0.03;
     }
 
     @Override
     public String toString() {
-        return super.toString() + ", Capacidade de Carga: " + capacidadeCarga + "t, IPVA: " + calcularIpva();
+        return super.toString() + ", Capacidade: " + capacidadeCarga + "t, IPVA: R$" + calcularIpva();
     }
 }
